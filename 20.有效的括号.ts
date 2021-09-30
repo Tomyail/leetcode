@@ -15,7 +15,7 @@ function isValid(s: string): boolean {
   const open = pair.map((p) => p[0]);
   const close = pair.map((p) => p[1]);
 
-  const stack = [];
+  const stack: string[] = [];
   for (let i = 0; i < s.length; i++) {
     const char = s.charAt(i);
     if (open.includes(char)) {
