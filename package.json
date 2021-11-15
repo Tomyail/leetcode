@@ -1,7 +1,7 @@
 {
   "name": "leecode",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",

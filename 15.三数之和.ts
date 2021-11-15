@@ -36,7 +36,7 @@
 //   return result;
 // }
 
-function threeSum(nums: number[]): number[][] {
+function threeSumwrong(nums: number[]): number[][] {
   if (nums.length < 3) return [];
 
   //从小到大排序
@@ -48,47 +48,17 @@ function threeSum(nums: number[]): number[][] {
   let start = 0;
   console.log(sorted);
 
-  let lastmatch: number[] = [];
   let cur = start + 1;
   let sum = 0;
   while (start < end && cur < end && cur > start) {
-    // if (sorted[start] === sorted[start - 1]) {
-    //   start++;
-    //   continue;
-    // }
     if (sorted[start] > 0) break;
-    // let sum = 0;
-    // let cur = start + 1;
-    // }
-    // for (let cur = start + 1; cur < end; cur++) {
-    console.log(sorted[start], sorted[cur], sorted[end]);
-    console.log(`start:${start}, cur:${cur}, end:${end}`);
-    // if (cur !== start + 1 && sorted[cur] === sorted[cur - 1]) {
-    //   // console.log('skip', start, cur, end);
-    //   continue;
-    // }
     sum = sorted[start] + sorted[end] + sorted[cur];
-    console.log(`sum:${sum},`);
     if (sum > 0) {
       end--;
-      cur--;
+      cur = start + 1;
       continue;
     }
     if (sum === 0) {
-      if (
-        lastmatch &&
-        lastmatch[0] === sorted[start] &&
-        lastmatch[1] === sorted[cur] &&
-        lastmatch[2] === sorted[end]
-      ) {
-        lastmatch = [sorted[start], sorted[cur], sorted[end]];
-        // console.log('skip', lastmatch);
-      } else {
-        lastmatch = [sorted[start], sorted[cur], sorted[end]];
-        // result.push([sorted[start], sorted[cur], sorted[end]]);
-        result.push(lastmatch);
-      }
-
       //如果找到了,start 继续增加总数会永远>0,所以需要缩小 end
       end--;
       //正常情况是 cur -1, 但是如果一开始就找到 cur-1  会等于 start 导致退出循环,所以加了一层保护
@@ -112,6 +82,47 @@ function threeSum(nums: number[]): number[][] {
     // }
     //小于 0 继续找
     // }
+  }
+  return result;
+}
+
+function threeSum(_nums: number[]) {
+  const nums = _nums.sort((a, b) => a - b);
+
+  console.log('sorted',nums)
+  let result = [];
+  let start = 0;
+  let end = 0;
+  let addNum = 0;
+  let length = nums.length;
+  for (let index = 1; index < length - 1; index++) {
+    start = 0;
+    end = length - 1;
+    if (index > 1 && nums[index] === nums[index - 1]) {
+      start = index - 1;
+    }
+    console.log(`begin:start:${start},end:${end},index:${index}`)
+    while (start < index && end > index) {
+    console.log(`search:start:${start},end:${end},index:${index}`)
+      if (start > 0 && nums[start] == nums[start - 1]) {
+        start++;
+        continue;
+      }
+      if (end < length - 1 && nums[end] == nums[end + 1]) {
+        end--;
+        continue;
+      }
+      addNum = nums[start] + nums[end] + nums[index];
+      if (addNum == 0) {
+        result.push([nums[start], nums[index], nums[end]]);
+        start++;
+        end--;
+      } else if (addNum > 0) {
+        end--;
+      } else {
+        start++;
+      }
+    }
   }
   return result;
 }
