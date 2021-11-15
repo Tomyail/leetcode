@@ -88,8 +88,6 @@ function threeSumwrong(nums: number[]): number[][] {
 
 function threeSum(_nums: number[]) {
   const nums = _nums.sort((a, b) => a - b);
-
-  console.log('sorted',nums)
   let result = [];
   let start = 0;
   let end = 0;
