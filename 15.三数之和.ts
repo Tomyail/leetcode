@@ -46,7 +46,7 @@ function threeSumwrong(nums: number[]): number[][] {
   const result: number[][] = [];
   let end = length - 1;
   let start = 0;
-  console.log(sorted);
+  // console.log(sorted);
 
   let cur = start + 1;
   let sum = 0;
@@ -63,7 +63,7 @@ function threeSumwrong(nums: number[]): number[][] {
       end--;
       //正常情况是 cur -1, 但是如果一开始就找到 cur-1  会等于 start 导致退出循环,所以加了一层保护
       cur = Math.max(start + 1, cur - 1);
-      console.log(`sum = 0 ,start:${start}, cur:${cur}, end:${end}`);
+      // console.log(`sum = 0 ,start:${start}, cur:${cur}, end:${end}`);
       // continue;
     }
 
@@ -99,9 +99,9 @@ function threeSum(_nums: number[]) {
     if (index > 1 && nums[index] === nums[index - 1]) {
       start = index - 1;
     }
-    console.log(`begin:start:${start},end:${end},index:${index}`)
+    // console.log(`begin:start:${start},end:${end},index:${index}`)
     while (start < index && end > index) {
-    console.log(`search:start:${start},end:${end},index:${index}`)
+    // console.log(`search:start:${start},end:${end},index:${index}`)
       if (start > 0 && nums[start] == nums[start - 1]) {
         start++;
         continue;

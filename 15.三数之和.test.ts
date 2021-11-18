@@ -26,7 +26,7 @@ it('15.三数之和', () => {
     [-2, 1, 1],
   ];
 
-  console.log(res3);
+  // console.log(res3);
   expect(res3.length).toBe(expect3.length);
 
   const res4 = fn([-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4]);
@@ -42,7 +42,7 @@ it('15.三数之和', () => {
     [-1, 0, 1],
   ];
 
-  console.log(res4);
+  // console.log(res4);
   expect(res4.length).toBe(expect4.length);
   expect(fn([])).toEqual([]);
   expect(fn([0])).toEqual([]);
