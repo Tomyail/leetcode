@@ -19,6 +19,7 @@
 
 function hasCycle(head: ListNode | null): boolean {
   //题目没说不能修改原链表，这个算专空子吗。。。
+  //访问后把原来的next 指向flag，然后判断下一个next 如果是flag 就是之前访问过的。。
   const flag = new ListNode();
   let pre;
   while (head) {
