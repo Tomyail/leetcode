@@ -1,5 +1,7 @@
 # leetcode
 
+notion 地址： https://www.notion.so/tomyail/a15d4e65ba114c8f86d308bfbec64d04?v=33b2a4db4fef481e91c7a39a900b8239
+
 刷题状态机
 
 1. 秒啊，原来是这样啊...
